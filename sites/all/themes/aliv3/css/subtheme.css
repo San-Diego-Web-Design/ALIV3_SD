@@ -46,3 +46,12 @@ div#block-superfish-2 {
 section#zones-content {
 	padding-top: 7.5em;
 }
+
+section#block-comment-recent {
+	position: fixed;
+}
+
+div#block-user-login {
+	display: none;
+	float: right;
+}
