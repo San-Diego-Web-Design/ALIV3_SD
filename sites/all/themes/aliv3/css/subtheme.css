@@ -1,1 +1,48 @@
 /* Custom Omega Subtheme Default stylesheet */
+
+/*
+header#zones-above {
+	position: fixed;
+	z-index: 300;
+}
+
+header div#branding-outer-wrapper {
+	margin: 0 auto 1em auto;
+}
+*/
+
+div#region-branding {
+	position: fixed;
+	z-index: 300;
+}
+
+div.logo-img {
+	display: none;
+}
+
+h1.site-title {
+	position: relative;
+	float: left;
+}
+
+h6.site-slogan {
+	position: relative;
+	float: left;
+}
+
+div.branding-data,
+div#block-superfish-1,
+div#block-search-form {
+	float: left;
+	margin-right: 2em;
+}
+
+
+
+div#block-superfish-2 {
+	float: right;
+}
+
+section#zones-content {
+	padding-top: 7.5em;
+}
