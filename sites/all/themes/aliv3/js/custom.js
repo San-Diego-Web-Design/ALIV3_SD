@@ -3,16 +3,23 @@
     attach: function(context, settings) {
       // you can implement your custom javascript/jquery here,
       // and also create other attached behaviors
-      $(document).ready(function(){
-
+      
+    $(document).ready(function(){
 	    $("ul#superfish-3 li.last a").click(function(){
 	        $("div#block-user-login").slideToggle("slow");
 	        $(this).toggleClass("sign-in-active"); 
 			return false;
 	    });
-
-
 	});
+	/*
+	$(document).ready(function(){
+		$("div.field-name-field-tags div.field-item a").click(function(){
+			$("aside#region-sidebar_first").toggleClass("region-sidebar-first");
+			$(this).toggleClass("region-extended");
+			return false;
+		});
+	});
+	*/
     }
   };
 })(jQuery);

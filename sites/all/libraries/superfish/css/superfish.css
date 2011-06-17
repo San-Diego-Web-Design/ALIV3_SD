@@ -37,7 +37,7 @@
 .sf-menu li:hover ul,
 .sf-menu li.sfHover ul {
   left: 0;
-  top: 2.5em;
+  top: 3.15em;
 }
 .sf-menu li:hover li ul,
 .sf-menu li.sfHover li ul,
@@ -56,7 +56,7 @@
   min-width: 1px;
 }
 .sf-sub-indicator {
-  background: url('../images/arrows-ffffff.png') no-repeat -10px -100px;
+  background: url('../images/arrows-777777.png') no-repeat -10px -100px;
   display: block;
   height: 10px;
   overflow: hidden;
@@ -122,7 +122,7 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-menu.rtl .sf-sub-indicator {
   left: 0.75em;
   right: auto;
-  background: url('../images/arrows-ffffff-rtl.png') no-repeat -10px -100px;
+  background: url('../images/arrows-777777-rtl.png') no-repeat -10px -100px;
 }
 .sf-menu.rtl a > .sf-sub-indicator {
   top: 0.8em;

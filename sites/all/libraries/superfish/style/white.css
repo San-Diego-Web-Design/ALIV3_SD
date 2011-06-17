@@ -1,3 +1,4 @@
+/*
 .sf-menu.sf-style-white {
   float: left;
   margin-bottom: 1em;
@@ -58,12 +59,14 @@
 .sf-menu.sf-style-white.sf-navbar li ul li ul {
   background-color: transparent;
 }
+
 .sf-menu.sf-style-white .sf-sub-indicator {
   background-image: url('../../images/arrows-777777.png');
 }
 .sf-menu.sf-style-white.rtl .sf-sub-indicator {
   background-image: url('../../images/arrows-777777-rtl.png');
 }
+
 .sf-menu.sf-style-white ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-white ul.sf-megamenu li.sf-megamenu-wrapper ol li {
 	margin: 0;
@@ -110,3 +113,4 @@
 .sf-menu.sf-style-white li.sf-parent-children-10 ul.sf-megamenu {
 	width: 120em;
 }
+*/
