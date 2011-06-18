@@ -11,15 +11,14 @@
 			return false;
 	    });
 	});
-	/*
+
 	$(document).ready(function(){
 		$("div.field-name-field-tags div.field-item a").click(function(){
-			$("aside#region-sidebar_first").toggleClass("region-sidebar-first");
-			$(this).toggleClass("region-extended");
+			$("aside#region-sidebar_first").toggleClass("element-hidden");
 			return false;
 		});
 	});
-	*/
+
     }
   };
 })(jQuery);

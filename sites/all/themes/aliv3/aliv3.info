@@ -15,6 +15,7 @@ base theme = omega
 
 ; ------- Declare default stylesheets
 stylesheets[all][] = css/subtheme.css
+stylesheets[all][] = css/zen-tabs-aliv3.css
 
 ; ------- Declare default JavaScript includes
 scripts[] = js/custom.js
