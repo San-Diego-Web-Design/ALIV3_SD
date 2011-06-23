@@ -14,9 +14,21 @@
 
 	$(document).ready(function(){
 		$("div.field-name-field-tags div.field-item a").click(function(){
-			$("aside#region-sidebar_first").toggleClass("element-hidden");
+			$("div#block-block-3").toggleClass("element-invisible");
+			$("aside#region-sidebar_first").toggleClass("element-hidden", "slow");	
 			return false;
 		});
+	});
+
+	$(document).ready(function(){
+		$("div.views-field-field-tags div.field-content a").click(function(){
+			$("aside#region-sidebar_first").toggleClass("element-hidden", "slow");	
+			return false;
+		});
+	});
+	
+	$(document).ready(function(){
+		$("div.views-row").addClass("clearfix");
 	});
 
     }
