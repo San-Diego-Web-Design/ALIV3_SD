@@ -8,7 +8,7 @@
   clear:both;
 }
 ul.quicktabs_tabs.quicktabs-style-zen{
-  margin:0 0 10px 0;
+  margin:0 0 0px 0;
   padding:0 0 3px;
   font-size:1em;
   list-style: none;
@@ -25,15 +25,16 @@ ul.quicktabs_tabs.quicktabs-style-zen li{
   background:transparent url(images/tab-left-ie6.png) no-repeat left -38px;
 }
 ul.quicktabs_tabs.quicktabs-style-zen li a{
-  font:bold 12px/170% Verdana;
+  font: 1em Myriad Pro;
   font-size-adjust:none;
   display: block;
   margin: 0;
-  padding:4px 17px 0px 12px;
+  padding:8px 17px 0px 12px;
   border-width: 0;
   font-weight:bold;
   text-decoration:none;
   background: transparent url(images/tab-right-ie6.png) no-repeat right -38px;
+  vertical-align: bottom;
 }
 ul.quicktabs_tabs.quicktabs-style-zen li:hover a{
   border-width: 0;

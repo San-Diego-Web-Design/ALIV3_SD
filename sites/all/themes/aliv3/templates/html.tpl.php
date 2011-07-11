@@ -39,6 +39,11 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <!-- Place this tag in your head or just before your close body tag -->
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+  <script type="text/javascript">
+  document.documentElement.className = 'js';
+  </script>
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
