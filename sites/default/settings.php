@@ -184,7 +184,7 @@ $databases = array (
     array (
       'database' => 'ALIV3_D7',
       'username' => 'root',
-      'password' => '',
+      'password' => 'root',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',

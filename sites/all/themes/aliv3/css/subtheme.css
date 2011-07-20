@@ -30,7 +30,9 @@ header#zones-above {
 	background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 49%,rgba(204,204,204,1) 100%); /* IE10+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 	background: linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 49%,rgba(204,204,204,1) 100%); /* W3C */
+	-moz-box-shadow: 0px 1px 7px rgba(0,0,0,0.7);
 	-webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.7);
+	box-shadow: 0px 1px 7px rgba(0,0,0,0.7);
 }
 
 div#region-menu {
@@ -418,7 +420,7 @@ aside.region-sidebar-first {
 	margin-top: 10px;
 	margin-left:780px;
 	margin-right: -960px;
-	min-height: 690px;
+	min-height: 715px;
 	padding: 10px 10px 0 20px;
 	background: rgb(249,249,249); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(250,250,250,1) 0%, rgba(245,245,245,1) 4%, rgba(245,245,245,1) 96%, rgba(250,250,250,1) 100%); /* FF3.6+ */
@@ -472,7 +474,14 @@ section#zones-content {
 	padding-top: 5em;
 }
 
-body.front div#content-container {
+body.front h1#page-title {
+	display: none;
+}
+
+body.front div#content-container,
+body.front section#region-content,
+body.front aside.region-sidebar-first,
+body.front aside.region-sidebar-second {
 	background: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -545,10 +554,14 @@ section#region-content {
  ** Sidebar Second Begin **
 ********************************************************************/
 
-aside.region-sidebar-second {
-	position: fixed; 
+.js aside.region-sidebar-second {
+	display: none;
+}
+
+.region-sidebar-second-fixed {
+	display:block !important;
+	position: fixed;
 	margin-left: 780px;
-	margin-right: -960px;
 	padding: 20px 20px 20px 20px;
 	z-index: 150;
 }
@@ -596,15 +609,16 @@ nav.links {
  ** Venues Teaser Page Begin **
 ********************************************************************/
 
-article.teaser div.views-row {
+body.not-front article.teaser div.views-row {
 	padding: 0;
 }
 
-article.node.teaser {
+body.not-front article.node.teaser {
 	border: 1px solid transparent;	
 }
 
-article.node.teaser:hover {
+body.not-front section.region-content article.node.teaser:hover,
+body.not-front aside.region-sidebar-second article.node.teaser:hover {
 	background-color: #e0e0e0;
 	border-top: 1px solid #c0c0c0;
 	border-right: 1px solid #c9c9c9;
@@ -612,51 +626,65 @@ article.node.teaser:hover {
 	border-left: 1px solid #c0c0c0;
 }
 
-article.teaser div.content {
+body.not-front article.teaser div.content {
 	padding: 10px 10px 10px 10px;
 	margin-bottom: 0;
 }
 
-div.field-name-field-image-teaser,
-div.field-name-field-article-teaser-image,
-div.field-name-field-venue-teaser-image {
+body.not-front section.region-content div.field-name-field-image-teaser,
+body.not-front section.region-content div.field-name-field-article-teaser-image,
+body.not-front div.field-name-field-venue-teaser-image {
 	position: absolute;
 	float: left;	
 }
 
-div.field-name-field-image-teaser img,
-div.field-name-field-article-teaser-image img,
-div.field-name-field-venue-teaser-image img {
+body.not-front div.field-name-field-image-teaser img,
+body.not-front div.field-name-field-article-teaser-image img,
+body.not-front div.field-name-field-venue-teaser-image img {
 	padding: 5px;
 	border: 1px solid #c5c5c5;
 	background-color: white;
+	width: 220px;
 }
 
-article.show.teaser h2,
-article.venue.teaser h2 {
+body.not-front section.region-content article.show.teaser h2 {
+	width: 500px;
+}
+
+body.not-front section.region-content article.show.teaser h2,
+body.not-front section.region-content article.venue.teaser h2 {
+	float: left;
+	margin: 11px 0 5px 10.8em;
+}
+
+body.not-front article.article.teaser h2 {
 	float: left;
 	margin: 11px 0 5px 10.9em;
 }
 
-article.article.teaser h2 {
+body.not-front article.show.teaser div.field-name-body {
 	float: left;
-	margin: 11px 0 5px 10.9em;
-}
-
-article.show.teaser div.field-name-body,
-article.venue.teaser div.field-name-body {
-	float: left;
-	margin: 0px 10px 0 18.8em;
+	margin: 0px 10px 15px 18.7em;
 	width: 285px;
+	height: 85px;
+	overflow: hidden;
 }
 
-article.article.teaser div.field-name-body {
+div.view-venues.view-display-id-page article.venue.teaser div.field-name-body {
+	float: left;
+	margin: 0px 10px 10px 18.7em;
+	width: 285px;
+	height: 110px;
+	overflow:hidden;
+}
+
+div.view-recent-articles-.view-display-id-page_1 article.article.teaser div.field-name-body {
 	float: left;
 	margin: 20px 10px 0 18.8em;
 	width: 285px;
 }
 
-article.venue.teaser div.rate-widget {
+div.view-venues.view-display-id-page article.venue.teaser div.rate-widget {
 	margin: 6px 0 0 15px;
 	/*
 	position: absolute;
@@ -664,30 +692,37 @@ article.venue.teaser div.rate-widget {
 	*/
 }
 
-
-article.teaser div.field-name-field-tags {
-	margin-left: 18.8em;
+article.show.teaser div.field-name-field-tags,
+div.view-recent-articles-.view-display-id-page_1 article.teaser div.field-name-field-tags {
 	float: left;
+	margin: 0px 0 0 18.4em;
 }
 
-article.article.teaser div.field-name-body p { 
+div.view-recent-articles-.view-display-id-page_1 div.field-name-body p { 
 	margin-bottom: 0;
 }
 
-article.teaser div.field-name-body p {
+div.view-display-id-page article.teaser div.field-name-body p,
+div.view-display-id-page_1 article.teaser div.field-name-body p {
 	line-height: 1.4em;
 }
 
 
-article.venue.teaser div.field-name-field-tags {
+div.view-venues.view-display-id-page article.venue.teaser div.field-name-field-tags {
 	float: left;
+	margin: 0px 0 0 18.4em;
+	
 }
 
-article.article.teaser footer.submitted,
-article.venue.teaser footer.submitted {
+/*
+body.not-front article.article.teaser footer.submitted,
+body.not-front article.venue.teaser footer.submitted
+*/
+div.view-venues.view-display-id-page footer.submitted,
+div.view-recent-articles-.view-display-id-page_1 footer.submitted {
 	position: absolute;
 	float: left;
-	margin: 175px 0 0 15px;
+	margin: 170px 0 0 15px;
 }
 
 
@@ -695,6 +730,261 @@ article.venue.teaser footer.submitted {
 /******************************************************************** 
  ** Venues Teaser Page End **
 ********************************************************************/
+
+
+/******************************************************************** 
+ ** Venues Teaser QT Begin **
+********************************************************************/
+
+div.view-venues.view-display-id-block div.field-name-field-venue-teaser-image img {
+	width: 100px;
+}
+
+div.view-venues.view-display-id-block article.venue.teaser h2.node-title {
+	float:left;
+	font-size: 1.5em;
+	margin:12px 0 2px 6.8em;
+	width: 200px;
+}
+
+div.view-venues.view-display-id-block div.rate-widget {
+	margin:0px 0 0 9.3em ;
+	height: 20px;
+}
+
+div.view-venues.view-display-id-block div.field-name-body {
+	width: 200px;
+	height: 25px;
+	overflow: hidden;
+	margin-left: 9.3em;
+}
+
+div.view-venues.view-display-id-block div.field-name-field-tags,
+div.view-venues.view-display-id-block div.field-name-field-venue-fb-like,
+div.view-venues.view-display-id-block div.g-plusone-wrapper,
+div.view-venues.view-display-id-block div.field-name-field-tweet-count {
+	display: none;
+}
+
+div.qt-venue-icon {
+	position: absolute;
+	float: left;
+	margin: 14px 0px 0 132px;
+	width: 24px;
+	height: 24px;
+}
+
+
+/******************************************************************** 
+ ** Venues Teaser QT End **
+********************************************************************/
+
+
+/******************************************************************** 
+ ** Top 10 Venues Teaser Begin **
+********************************************************************/
+
+body.front section#zones-content {
+	padding-top: 3.5em;
+}
+
+section#block-views-top-10-venues-block h2.block-title {
+	font-size: 2em;
+}
+
+section#block-views-top-10-venues-block div.view-top-10-venues {
+	margin-top: -20px;
+}
+
+div.view-top-10-venues div.top-venues {
+	position: absolute;
+}
+
+div.view-top-10-venues h2.node-title {
+	font-size: 1.5em;
+}
+
+div.view-top-10-venues div.field-name-field-venue-teaser-image img {
+	width: 180px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+div.view-top-10-venues div.field-name-body {
+	width: 190px;
+	height: 65px;
+	overflow:hidden;	
+}
+
+div.view-top-10-venues div.field-name-field-tags,
+div.view-top-10-venues div.field-name-field-venue-fb-like,
+div.view-top-10-venues div.g-plusone-wrapper,
+div.view-top-10-venues div.field-name-field-tweet-count {
+	display:none;
+}
+
+div.view-top-10-venues div.field-name-field-tags {
+	position: absolute;
+	margin: -210px 0 0 85px;
+	display: none;
+	
+}
+
+div.view-top-10-venues ol li.views-row {
+	position: relative;
+	float: left;
+	max-width: 200px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	padding: 10px 10px;
+	
+}
+
+div.view-top-10-venues ol li.views-row:hover {
+	background: rgb(250,250,250); /* Old browsers */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radus: 10px;
+	-webkit-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+	-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+}
+
+div.view-top-10-venues ol li.views-row-5,
+div.view-top-10-venues ol li.views-row-10 {
+	margin-right: 0;
+}
+
+div.view-top-10-venues div.rate-widget {
+	margin: 5px 0 0 0;
+}
+
+/******************************************************************** 
+ ** Venues Teaser QT End **
+********************************************************************/
+
+/******************************************************************** 
+ ** Shows Teaser QT Begin **
+********************************************************************/
+
+div.view-shows.view-display-id-block div.views-row {
+	padding: 10px 10px 0 10px;
+	border: 1px solid transparent;
+}
+
+div.view-shows.view-display-id-block div.views-field-field-image-teaser {
+	float: left;
+	margin-right: 10px;
+}
+
+div.view-shows.view-display-id-block div.views-field-field-image-teaser img {
+	padding: 5px;
+	background-color: white;
+	border: 1px solid #c5c5c5;
+}
+
+div.view-shows.view-display-id-block div.views-field-title {
+	margin-bottom: 0;
+}
+
+div.view-shows.view-display-id-block div.views-field-title a {
+	font-size: 1.3em;
+}
+
+div.view-shows.view-display-id-block div.views-field-field-show-date p {
+	font-family: "Myriad Pro";
+	font-size: .9em;
+}
+
+div.qt-show-icon {
+	position: absolute;
+	margin: 0px 0 0 120px;
+	width: 24px;
+	height: 24px;
+}
+
+div.view-shows.view-display-id-block div.views-field-field-artist-name {
+	margin: 6px 0 5px 0px;
+}
+
+div.views-field-field-venue-name {
+	margin-bottom: 0px;
+	color: rgba(150,35,38,1);
+	font-weight: bold;
+	font-family: Myriad Pro;
+	font-size: 1.2em;
+}
+
+
+
+/******************************************************************** 
+ ** Shows Teaser QT End **
+********************************************************************/
+
+
+/******************************************************************** 
+ ** Shows Sidebar Block Begin **
+********************************************************************/
+
+div#block-views-venues-block-1 div.content,
+div#block-views-shows-block-1 div.content {
+	padding: 0;
+}
+
+div#block-views-shows-block-1 h2 {
+	float: left;
+	margin: 0 0 10px 0;
+}
+
+div#block-views-venues-block-1 article.node.teaser:hover,
+div#block-views-shows-block-1 article.node.teaser:hover {
+	backgound: transparent;
+}
+
+div#block-views-shows-block-1 div.content {
+	padding: 0;
+}
+
+div#block-views-venues-block-1 div.field-name-field-venue-teaser-image,
+div#block-views-shows-block-1 div.field-name-field-image-teaser {
+	position: relative;
+	float: left;
+	margin-bottom: 10px;
+}
+
+div#block-views-venues-block-1 div.field-name-field-venue-teaser-image img,
+div#block-views-shows-block-1 div.field-name-field-image-teaser img {
+	position: relative;
+	width: 360px;
+}
+
+div#block-views-shows-block-1 div.field-name-body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+div#block-views-venues-block-1 div.field-name-body p {
+	margin-bottom: 10px;
+}
+
+div#block-views-venues-block-1 div.field-name-field-tweet-count {
+	margin-bottom: 10px;
+}
+
+div#block-views-venues-block-1 div.field-name-field-tags, 
+div#block-views-shows-block-1 div.field-name-field-tags {
+	position: relative;
+	margin-left: 0;
+	clear: left;
+}
+
+/******************************************************************** 
+ ** Shows Sidebar Block End **
+********************************************************************/
+
+
 
 /**************************************************************************************************
 ** Recent Articles Block & Page Begin **
@@ -767,7 +1057,7 @@ div.views-row  p {
 }
 
 div.view-recent-articles-.view-display-id-block div.views-row p {
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 }
 
 div#quicktabs-homepage_tabs div.views-field-body,
@@ -786,6 +1076,7 @@ div.view-display-id-page span.views-field-title a {
 div.view-recent-articles-.view-display-id-block span.views-field-title {
 }
 
+div.view-shows.view-display-id-block div.views-field-field-artist-name p,
 span.views-field-title a {
 	font-family: Rockwell;
 	font-weight: 600;
@@ -797,9 +1088,16 @@ span.views-field-title a {
 	font-size: 1.2em;
 	line-height: .8em;
 }
+
+div.view-shows.view-display-id-block div.views-field-field-artist-name p {
+	font-size: 1.4em;
+}
+
 /*
 div.view-recent-articles-.view-display-id-page div.views-row-odd,
 */
+
+div.view-shows.view-display-id-block div.views-row:hover,
 div.view-recent-articles-.view-display-id-page div.views-row:hover {
 	background-color: #e0e0e0;
 	border-top: 1px solid #c0c0c0;
@@ -901,6 +1199,7 @@ div.views-field-body p {
 	overflow: hidden;
 }
 
+span.topic,
 span.genre,
 span.venue-tag {
 	color: rgba(150,35,38,1);
@@ -990,6 +1289,7 @@ article.article div.field-name-field-article-fb-like {
 	float: left;
 	margin-right: 4px;
 	margin-top: 2px;
+	height: 60px;
 }
 
 div.g-plusone-wrapper {
@@ -1160,7 +1460,7 @@ div.rate-info {
 	visibility: hidden;
 }
 
-div.rate-widget {
+body.not-front div.rate-widget {
 	float: left;
 	margin-right: 15px;
 }
