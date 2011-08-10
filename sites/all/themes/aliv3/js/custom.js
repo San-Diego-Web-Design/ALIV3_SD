@@ -18,6 +18,9 @@
 			$("aside.region-sidebar-second").toggleClass("element-invisible","slow");
 		});
 		*/
+		$("div#block-views-venue-slideshow-block").addClass("drop-shadow curved-hz-1");
+		$("div.block-quicktabs").addClass("drop-shadow");
+		$("div.block-quicktabs").addClass("curved-hz-1");
 		
 		$("aside.region-sidebar-second").addClass("region-sidebar-second-fixed");
 		
@@ -56,7 +59,6 @@
 		});
 		*/
 	});
-	
 	/*
 	$(document).ready(function(){
 
@@ -65,10 +67,10 @@
 				if ($(this).scrollTop() > 630) {
 					$("").fadeIn();
 					$("aside.region-sidebar-first").addClass("element-invisible");
-					$("aside.region-sidebar-second").addClass("element-invisible");
+					$("aside.region-sidebar-second").addClass("scroll");
 				} else {
 					$("aside.region-sidebar-first").removeClass("element-invisible");
-					$("aside.region-sidebar-second").removeClass("element-invisible");
+					$("aside.region-sidebar-second").removeClass("scroll");
 				}
 			});
 			
@@ -76,7 +78,6 @@
 
 	});
 	*/
-	
 	/*
 	$(document).ready(function(){
 
@@ -118,7 +119,14 @@
 	*/
 	
 	$(document).ready(function(){
+		
+		/*
+		$("section#region-content").addClass("drop-shadow");
+		$("section#region-content").addClass("curved");
+		*/
+		
 		$("div.views-row").addClass("clearfix");
+		$("div.view-venues.view-display-id-block div.content").addClass("clearfix");
 	});
 	
 	// Articles Teasers Page Title Icon
